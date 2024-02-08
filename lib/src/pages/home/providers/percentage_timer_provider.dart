@@ -14,5 +14,5 @@ final percentageTimerProvider = Provider.autoDispose<double>((ref) {
     PomodoroState.longBreak => timerSettings.longBreak,
   };
 
-  return 1 - (currentTime / totalTime);
+  return currentTime / totalTime;
 });
