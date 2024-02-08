@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pomodorro/shared/const/pomodoro_state.dart';
 import 'package:pomodorro/shared/theme/theme.dart';
-import 'package:pomodorro/src/providers/app_action_provider.dart';
+import 'package:pomodorro/src/providers/pomodoro_state_provider.dart';
 import 'package:pomodorro/src/providers/theme_settings_provider.dart';
 
 class HomeSegmentedButton extends ConsumerWidget {

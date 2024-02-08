@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pomodorro/shared/extensions/context_extension.dart';
+import 'package:pomodorro/shared/extensions/int_extension.dart';
 import 'package:pomodorro/src/data/models/timer_settings.dart';
 import 'package:pomodorro/src/pages/settings/widgets/section_headline.dart';
 import 'package:pomodorro/src/pages/settings/widgets/time_section/time_section_item.dart';
@@ -54,7 +55,7 @@ class _FieldsMobileLayout extends StatelessWidget {
           title: 'pomodoro',
           initialValue: timerSettings.pomodoro,
           onTimeChanged: (value) => onTimeSelected(
-            timerSettings.copyWith(pomodoro: value),
+            timerSettings.copyWith(pomodoro: value.toSeconds),
           ),
         ),
         const SizedBox(height: 8),
@@ -62,7 +63,7 @@ class _FieldsMobileLayout extends StatelessWidget {
           title: 'short break',
           initialValue: timerSettings.shortBreak,
           onTimeChanged: (value) => onTimeSelected(
-            timerSettings.copyWith(shortBreak: value),
+            timerSettings.copyWith(shortBreak: value.toSeconds),
           ),
         ),
         const SizedBox(height: 8),
@@ -70,7 +71,7 @@ class _FieldsMobileLayout extends StatelessWidget {
           title: 'long break',
           initialValue: timerSettings.longBreak,
           onTimeChanged: (value) => onTimeSelected(
-            timerSettings.copyWith(longBreak: value),
+            timerSettings.copyWith(longBreak: value.toSeconds),
           ),
         ),
       ],
@@ -96,7 +97,7 @@ class _FieldsTabletLayout extends StatelessWidget {
             title: 'pomodoro',
             initialValue: timerSettings.pomodoro,
             onTimeChanged: (value) => onTimeSelected(
-              timerSettings.copyWith(pomodoro: value),
+              timerSettings.copyWith(pomodoro: value.toSeconds),
             ),
           ),
         ),
@@ -106,7 +107,7 @@ class _FieldsTabletLayout extends StatelessWidget {
             title: 'short break',
             initialValue: timerSettings.shortBreak,
             onTimeChanged: (value) => onTimeSelected(
-              timerSettings.copyWith(shortBreak: value),
+              timerSettings.copyWith(shortBreak: value.toSeconds),
             ),
           ),
         ),
@@ -116,7 +117,7 @@ class _FieldsTabletLayout extends StatelessWidget {
             title: 'long break',
             initialValue: timerSettings.longBreak,
             onTimeChanged: (value) => onTimeSelected(
-              timerSettings.copyWith(longBreak: value),
+              timerSettings.copyWith(longBreak: value.toSeconds),
             ),
           ),
         ),

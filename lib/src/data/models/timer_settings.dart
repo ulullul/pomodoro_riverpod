@@ -4,9 +4,9 @@ class TimerSettings {
   final int longBreak;
 
   TimerSettings({
-    this.pomodoro = 25,
-    this.shortBreak = 5,
-    this.longBreak = 15,
+    this.pomodoro = 1500,
+    this.shortBreak = 300,
+    this.longBreak = 900,
   });
 
   Map<String, dynamic> toJson() {

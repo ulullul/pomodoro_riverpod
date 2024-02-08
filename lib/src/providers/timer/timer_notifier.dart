@@ -4,9 +4,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pomodorro/shared/const/app_constants.dart';
 import 'package:pomodorro/shared/const/pomodoro_state.dart';
 import 'package:pomodorro/shared/const/timer_state.dart';
-import 'package:pomodorro/shared/extensions/int_extension.dart';
 import 'package:pomodorro/src/data/data_sources/timer_settings/timer_settings_data_source_provider.dart';
-import 'package:pomodorro/src/providers/app_action_provider.dart';
+import 'package:pomodorro/src/providers/pomodoro_state_provider.dart';
 import 'package:pomodorro/src/providers/timer_settings_provider.dart';
 
 import 'timer_state.dart';
@@ -28,14 +27,14 @@ class TimerNotifier extends AutoDisposeNotifier<TimerState> {
 
     final currentAppAction = ref.read(pomodoroStateProvider);
 
-    final timeInMinutes = switch (currentAppAction) {
+    final timeInSeconds = switch (currentAppAction) {
       PomodoroState.pomodoro => timerSettings.pomodoro,
       PomodoroState.shortBreak => timerSettings.shortBreak,
       PomodoroState.longBreak => timerSettings.longBreak,
     };
 
     return TimerState(
-      secondsLeft: timeInMinutes.toSeconds,
+      secondsLeft: timeInSeconds,
       timerState: TimerStateEnum.initial,
     );
   }
