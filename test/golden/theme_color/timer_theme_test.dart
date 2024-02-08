@@ -14,7 +14,8 @@ class ColorsBytes {
 
 void main() {
   group('Theme tests', () {
-    testWidgets('Red theme (default) displayed correctly for the timer', (tester) async {
+    testWidgets('Red theme (default) displayed correctly for the timer',
+        (tester) async {
       SharedPreferences.setMockInitialValues({});
       final prefsInstance = await SharedPreferences.getInstance();
 
@@ -41,7 +42,8 @@ void main() {
 
     testWidgets('Aqua theme displayed correctly for timer', (tester) async {
       SharedPreferences.setMockInitialValues({
-        'theme': '{"accentColor":${ColorsBytes.aqua},"appFontFamily":"Space Mono"}'
+        'theme':
+            '{"accentColor":${ColorsBytes.aqua},"appFontFamily":"Space Mono"}'
       });
       final prefsInstance = await SharedPreferences.getInstance();
 
@@ -66,9 +68,11 @@ void main() {
       );
     });
 
-    testWidgets('Purple theme displayed correctly for the timer', (tester) async {
+    testWidgets('Purple theme displayed correctly for the timer',
+        (tester) async {
       SharedPreferences.setMockInitialValues({
-        'theme': '{"accentColor":${ColorsBytes.purple},"appFontFamily":"Space Mono"}'
+        'theme':
+            '{"accentColor":${ColorsBytes.purple},"appFontFamily":"Space Mono"}'
       });
       final prefsInstance = await SharedPreferences.getInstance();
 
@@ -93,7 +97,8 @@ void main() {
       );
     });
 
-    testWidgets('Red theme (default) displayed correctly for segmented button', (tester) async {
+    testWidgets('Red theme (default) displayed correctly for segmented button',
+        (tester) async {
       SharedPreferences.setMockInitialValues({});
       final prefsInstance = await SharedPreferences.getInstance();
 
@@ -118,9 +123,11 @@ void main() {
       );
     });
 
-    testWidgets('Aqua theme displayed correctly for segmented button', (tester) async {
+    testWidgets('Aqua theme displayed correctly for segmented button',
+        (tester) async {
       SharedPreferences.setMockInitialValues({
-        'theme': '{"accentColor":${ColorsBytes.aqua},"appFontFamily":"Space Mono"}'
+        'theme':
+            '{"accentColor":${ColorsBytes.aqua},"appFontFamily":"Space Mono"}'
       });
       final prefsInstance = await SharedPreferences.getInstance();
 
@@ -145,9 +152,11 @@ void main() {
       );
     });
 
-    testWidgets('Purple theme displayed correctly for segmented button', (tester) async {
+    testWidgets('Purple theme displayed correctly for segmented button',
+        (tester) async {
       SharedPreferences.setMockInitialValues({
-        'theme': '{"accentColor":${ColorsBytes.purple},"appFontFamily":"Space Mono"}'
+        'theme':
+            '{"accentColor":${ColorsBytes.purple},"appFontFamily":"Space Mono"}'
       });
       final prefsInstance = await SharedPreferences.getInstance();
 

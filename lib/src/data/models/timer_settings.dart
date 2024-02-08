@@ -9,6 +9,12 @@ class TimerSettings {
     this.longBreak = 900,
   });
 
+  get toMinutes => TimerSettings(
+        pomodoro: pomodoro ~/ 60,
+        shortBreak: shortBreak ~/ 60,
+        longBreak: longBreak ~/ 60,
+      );
+
   Map<String, dynamic> toJson() {
     return {
       'pomodoro': pomodoro,

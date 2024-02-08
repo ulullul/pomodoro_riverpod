@@ -14,11 +14,13 @@ class ColorsBytes {
 
 void main() {
   group('Theme tests', () {
-    testWidgets('Khumb Sans font is displayed correctly for the timer', (tester) async {
+    testWidgets('Khumb Sans font is displayed correctly for the timer',
+        (tester) async {
       await loadAppFonts();
 
       SharedPreferences.setMockInitialValues({
-        'theme': '{"accentColor":${ColorsBytes.red},"appFontFamily":"${AppFontFamily.kumbhSans.name}"}'
+        'theme':
+            '{"accentColor":${ColorsBytes.red},"appFontFamily":"${AppFontFamily.kumbhSans.name}"}'
       });
       final prefsInstance = await SharedPreferences.getInstance();
 
@@ -43,11 +45,13 @@ void main() {
       );
     });
 
-    testWidgets('Space Mono font is displayed correctly for the timer', (tester) async {
+    testWidgets('Space Mono font is displayed correctly for the timer',
+        (tester) async {
       await loadAppFonts();
 
       SharedPreferences.setMockInitialValues({
-        'theme': '{"accentColor":${ColorsBytes.red},"appFontFamily":"${AppFontFamily.spaceMono.name}"}'
+        'theme':
+            '{"accentColor":${ColorsBytes.red},"appFontFamily":"${AppFontFamily.spaceMono.name}"}'
       });
       final prefsInstance = await SharedPreferences.getInstance();
 
@@ -72,11 +76,13 @@ void main() {
       );
     });
 
-    testWidgets('Robot Slab font is displayed correctly for the timer', (tester) async {
+    testWidgets('Robot Slab font is displayed correctly for the timer',
+        (tester) async {
       await loadAppFonts();
 
       SharedPreferences.setMockInitialValues({
-        'theme': '{"accentColor":${ColorsBytes.red},"appFontFamily":"${AppFontFamily.robotoSlab.name}"}'
+        'theme':
+            '{"accentColor":${ColorsBytes.red},"appFontFamily":"${AppFontFamily.robotoSlab.name}"}'
       });
       final prefsInstance = await SharedPreferences.getInstance();
 
@@ -101,11 +107,13 @@ void main() {
       );
     });
 
-    testWidgets('Khumb Sans font is displayed correctly for segmented button', (tester) async {
+    testWidgets('Khumb Sans font is displayed correctly for segmented button',
+        (tester) async {
       await loadAppFonts();
 
       SharedPreferences.setMockInitialValues({
-        'theme': '{"accentColor":${ColorsBytes.red},"appFontFamily":"${AppFontFamily.kumbhSans.name}"}'
+        'theme':
+            '{"accentColor":${ColorsBytes.red},"appFontFamily":"${AppFontFamily.kumbhSans.name}"}'
       });
       final prefsInstance = await SharedPreferences.getInstance();
 
@@ -130,11 +138,13 @@ void main() {
       );
     });
 
-    testWidgets('Space Mono font is displayed correctly for segmented button', (tester) async {
+    testWidgets('Space Mono font is displayed correctly for segmented button',
+        (tester) async {
       await loadAppFonts();
 
       SharedPreferences.setMockInitialValues({
-        'theme': '{"accentColor":${ColorsBytes.red},"appFontFamily":"${AppFontFamily.spaceMono.name}"}'
+        'theme':
+            '{"accentColor":${ColorsBytes.red},"appFontFamily":"${AppFontFamily.spaceMono.name}"}'
       });
       final prefsInstance = await SharedPreferences.getInstance();
 
@@ -159,11 +169,13 @@ void main() {
       );
     });
 
-    testWidgets('Robot Slab font is displayed correctly for segmented button', (tester) async {
+    testWidgets('Robot Slab font is displayed correctly for segmented button',
+        (tester) async {
       await loadAppFonts();
 
       SharedPreferences.setMockInitialValues({
-        'theme': '{"accentColor":${ColorsBytes.red},"appFontFamily":"${AppFontFamily.robotoSlab.name}"}'
+        'theme':
+            '{"accentColor":${ColorsBytes.red},"appFontFamily":"${AppFontFamily.robotoSlab.name}"}'
       });
       final prefsInstance = await SharedPreferences.getInstance();
 

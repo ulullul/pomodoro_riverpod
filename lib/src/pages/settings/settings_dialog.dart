@@ -49,9 +49,14 @@ class _SettingsDialogState extends ConsumerState<SettingsDialog> {
     });
   }
 
-  void onTimerSettingsChanged(TimerSettings timerSettings) {
+  void onTimerSettingsChanged(
+      {int? pomodoro, int? shortBreak, int? longBreak}) {
     setState(() {
-      _timerSettings = timerSettings;
+      _timerSettings = _timerSettings.copyWith(
+        pomodoro: pomodoro,
+        shortBreak: shortBreak,
+        longBreak: longBreak,
+      );
     });
   }
 
@@ -95,8 +100,13 @@ class _SettingsDialogState extends ConsumerState<SettingsDialog> {
                         child: Column(
                           children: [
                             TimeSection(
-                              timerSettings: _timerSettings,
-                              onTimeSelected: onTimerSettingsChanged,
+                              timerSettings: _timerSettings.toMinutes,
+                              onPomodoroSelected: (val) =>
+                                  onTimerSettingsChanged(pomodoro: val),
+                              onShortBreakSelected: (val) =>
+                                  onTimerSettingsChanged(shortBreak: val),
+                              onLongBreakSelected: (val) =>
+                                  onTimerSettingsChanged(longBreak: val),
                             ),
                             const SettingsSeparator(),
                             FontSection(

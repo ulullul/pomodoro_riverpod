@@ -27,6 +27,17 @@ class _AppNumberInputState extends State<AppNumberInput> {
   void initState() {
     super.initState();
     _controller = TextEditingController(text: widget.initialValue.toString());
+
+    _controller.addListener(() {
+      final value = int.tryParse(_controller.text) ?? 1;
+      updateValue(value);
+    });
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
   }
 
   void updateValue(int value) {

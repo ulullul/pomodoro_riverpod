@@ -7,12 +7,16 @@ import 'package:pomodorro/src/pages/settings/widgets/time_section/time_section_i
 
 class TimeSection extends StatelessWidget {
   final TimerSettings timerSettings;
-  final ValueChanged<TimerSettings> onTimeSelected;
+  final ValueChanged<int> onPomodoroSelected;
+  final ValueChanged<int> onShortBreakSelected;
+  final ValueChanged<int> onLongBreakSelected;
 
   const TimeSection({
     super.key,
     required this.timerSettings,
-    required this.onTimeSelected,
+    required this.onPomodoroSelected,
+    required this.onShortBreakSelected,
+    required this.onLongBreakSelected,
   });
 
   @override
@@ -27,11 +31,15 @@ class TimeSection extends StatelessWidget {
         context.isMobile
             ? _FieldsMobileLayout(
                 timerSettings: timerSettings,
-                onTimeSelected: onTimeSelected,
+                onPomodoroSelected: onPomodoroSelected,
+                onShortBreakSelected: onShortBreakSelected,
+                onLongBreakSelected: onLongBreakSelected,
               )
             : _FieldsTabletLayout(
                 timerSettings: timerSettings,
-                onTimeSelected: onTimeSelected,
+                onPomodoroSelected: onPomodoroSelected,
+                onShortBreakSelected: onShortBreakSelected,
+                onLongBreakSelected: onLongBreakSelected,
               ),
       ],
     );
@@ -40,11 +48,15 @@ class TimeSection extends StatelessWidget {
 
 class _FieldsMobileLayout extends StatelessWidget {
   final TimerSettings timerSettings;
-  final ValueChanged<TimerSettings> onTimeSelected;
+  final ValueChanged<int> onPomodoroSelected;
+  final ValueChanged<int> onShortBreakSelected;
+  final ValueChanged<int> onLongBreakSelected;
 
   const _FieldsMobileLayout({
     required this.timerSettings,
-    required this.onTimeSelected,
+    required this.onPomodoroSelected,
+    required this.onShortBreakSelected,
+    required this.onLongBreakSelected,
   });
 
   @override
@@ -52,27 +64,24 @@ class _FieldsMobileLayout extends StatelessWidget {
     return Column(
       children: [
         TimeSectionItem(
+          key: const Key('pomodoro'),
           title: 'pomodoro',
           initialValue: timerSettings.pomodoro,
-          onTimeChanged: (value) => onTimeSelected(
-            timerSettings.copyWith(pomodoro: value.toSeconds),
-          ),
+          onTimeChanged: (value) => onPomodoroSelected(value.toSeconds),
         ),
         const SizedBox(height: 8),
         TimeSectionItem(
+          key: const Key('short_break'),
           title: 'short break',
           initialValue: timerSettings.shortBreak,
-          onTimeChanged: (value) => onTimeSelected(
-            timerSettings.copyWith(shortBreak: value.toSeconds),
-          ),
+          onTimeChanged: (value) => onShortBreakSelected(value.toSeconds),
         ),
         const SizedBox(height: 8),
         TimeSectionItem(
+          key: const Key('long_break'),
           title: 'long break',
           initialValue: timerSettings.longBreak,
-          onTimeChanged: (value) => onTimeSelected(
-            timerSettings.copyWith(longBreak: value.toSeconds),
-          ),
+          onTimeChanged: (value) => onLongBreakSelected(value.toSeconds),
         ),
       ],
     );
@@ -81,11 +90,15 @@ class _FieldsMobileLayout extends StatelessWidget {
 
 class _FieldsTabletLayout extends StatelessWidget {
   final TimerSettings timerSettings;
-  final ValueChanged<TimerSettings> onTimeSelected;
+  final ValueChanged<int> onPomodoroSelected;
+  final ValueChanged<int> onShortBreakSelected;
+  final ValueChanged<int> onLongBreakSelected;
 
   const _FieldsTabletLayout({
     required this.timerSettings,
-    required this.onTimeSelected,
+    required this.onPomodoroSelected,
+    required this.onShortBreakSelected,
+    required this.onLongBreakSelected,
   });
 
   @override
@@ -94,31 +107,28 @@ class _FieldsTabletLayout extends StatelessWidget {
       children: [
         Expanded(
           child: TimeSectionItem(
+            key: const Key('pomodoro'),
             title: 'pomodoro',
             initialValue: timerSettings.pomodoro,
-            onTimeChanged: (value) => onTimeSelected(
-              timerSettings.copyWith(pomodoro: value.toSeconds),
-            ),
+            onTimeChanged: (value) => onPomodoroSelected(value.toSeconds),
           ),
         ),
         const SizedBox(width: 20),
         Expanded(
           child: TimeSectionItem(
+            key: const Key('short_break'),
             title: 'short break',
             initialValue: timerSettings.shortBreak,
-            onTimeChanged: (value) => onTimeSelected(
-              timerSettings.copyWith(shortBreak: value.toSeconds),
-            ),
+            onTimeChanged: (value) => onShortBreakSelected(value.toSeconds),
           ),
         ),
         const SizedBox(width: 20),
         Expanded(
           child: TimeSectionItem(
+            key: const Key('long_break'),
             title: 'long break',
             initialValue: timerSettings.longBreak,
-            onTimeChanged: (value) => onTimeSelected(
-              timerSettings.copyWith(longBreak: value.toSeconds),
-            ),
+            onTimeChanged: (value) => onLongBreakSelected(value.toSeconds),
           ),
         ),
       ],
