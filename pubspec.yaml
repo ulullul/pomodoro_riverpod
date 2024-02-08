@@ -1,0 +1,54 @@
+name: pomodorro
+description: "Pomodorro challenge app"
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.2.6 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.6
+  flutter_riverpod: ^2.4.10
+  custom_sliding_segmented_control: ^1.8.1
+  collection: ^1.18.0
+  flutter_svg: ^2.0.9
+  defer_pointer: ^0.0.2
+  shared_preferences: ^2.2.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^3.0.1
+  build_runner: ^2.4.8
+  riverpod_lint: ^2.3.9
+
+flutter:
+
+  uses-material-design: true
+
+  assets:
+    - assets/icons/
+
+  fonts:
+    - family: Kumbh Sans
+      fonts:
+        - asset: assets/fonts/kumbh_sans/KumbhSans-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/kumbh_sans/KumbhSans-Bold.ttf
+          weight: 700
+    - family: Roboto Slab
+      fonts:
+        - asset: assets/fonts/roboto_slab/RobotoSlab-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/roboto_slab/RobotoSlab-Bold.ttf
+          weight: 700
+    - family: Space Mono
+      fonts:
+        - asset: assets/fonts/space_mono/SpaceMono-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/space_mono/SpaceMono-Bold.ttf
+          weight: 700
