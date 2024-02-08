@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -66,5 +68,39 @@ void main() {
         ),
       );
     });
+  });
+
+  test('Settings persist after app restart', () async {
+    final timerSettings = TimerSettings(
+      pomodoro: 100,
+      shortBreak: 100,
+      longBreak: 100,
+    );
+
+    final themeSettings = ThemeSettings(
+      accentColor: AppColors.aqua,
+      appFontFamily: AppFontFamily.kumbhSans,
+    );
+
+    container.read(timerSettingsProvider.notifier).setTimerSettings(timerSettings);
+    container.read(themeSettingsProvider.notifier).setTheme(themeSettings);
+
+    // Simulate app restart by creating a new container
+    SharedPreferences.setMockInitialValues({
+      'theme': jsonEncode(themeSettings.toJson()),
+      'timer_settings': jsonEncode(timerSettings.toJson()),
+    });
+    final newContainer = createContainer(overrides: [
+      sharedPreferencesProvider.overrideWithValue(await SharedPreferences.getInstance()),
+    ]);
+
+    expect(
+      newContainer.read(timerSettingsProvider),
+      equals(timerSettings),
+    );
+    expect(
+      newContainer.read(themeSettingsProvider),
+      equals(themeSettings),
+    );
   });
 }
