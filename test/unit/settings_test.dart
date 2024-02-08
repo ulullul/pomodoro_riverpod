@@ -82,7 +82,9 @@ void main() {
       appFontFamily: AppFontFamily.kumbhSans,
     );
 
-    container.read(timerSettingsProvider.notifier).setTimerSettings(timerSettings);
+    container
+        .read(timerSettingsProvider.notifier)
+        .setTimerSettings(timerSettings);
     container.read(themeSettingsProvider.notifier).setTheme(themeSettings);
 
     // Simulate app restart by creating a new container
@@ -91,7 +93,8 @@ void main() {
       'timer_settings': jsonEncode(timerSettings.toJson()),
     });
     final newContainer = createContainer(overrides: [
-      sharedPreferencesProvider.overrideWithValue(await SharedPreferences.getInstance()),
+      sharedPreferencesProvider
+          .overrideWithValue(await SharedPreferences.getInstance()),
     ]);
 
     expect(
