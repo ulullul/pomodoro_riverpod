@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pomodorro/shared/images/app_svg_assets.dart';
 import 'package:pomodorro/shared/theme/theme.dart';
@@ -60,6 +61,7 @@ class _AppNumberInputState extends State<AppNumberInput> {
           fontSize: 14,
           fontWeight: FontWeight.bold,
         ),
+        inputFormatters: [FilteringTextInputFormatter.digitsOnly],
         decoration: InputDecoration(
           contentPadding:
               const EdgeInsets.symmetric(horizontal: 16, vertical: 0),
