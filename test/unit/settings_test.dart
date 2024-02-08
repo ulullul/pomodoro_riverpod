@@ -45,9 +45,9 @@ void main() {
         timerSettings,
         equals(
           TimerSettings(
-            pomodoro: 25,
-            shortBreak: 5,
-            longBreak: 15,
+            pomodoro: 1500,
+            shortBreak: 300,
+            longBreak: 900,
           ),
         ),
       );

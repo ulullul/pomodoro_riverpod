@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pomodorro/extensions/list_extension.dart';
+import 'package:pomodorro/shared/extensions/list_extension.dart';
 
 class PickerWidget<T> extends StatelessWidget {
   final List<T> items;
