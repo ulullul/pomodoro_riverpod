@@ -101,7 +101,7 @@ class _SettingsDialogState extends ConsumerState<SettingsDialog> {
                         ),
                         child: Column(
                           children: [
-                            TimeSection(
+                            TimeSectionContainer(
                               timerSettings: _timerSettings.toMinutes,
                               onPomodoroSelected: (val) =>
                                   onTimerSettingsChanged(pomodoro: val),

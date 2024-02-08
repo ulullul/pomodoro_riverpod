@@ -5,13 +5,13 @@ import 'package:pomodorro/src/data/models/timer_settings.dart';
 import 'package:pomodorro/src/pages/settings/widgets/section_headline.dart';
 import 'package:pomodorro/src/pages/settings/widgets/time_section/time_section_item.dart';
 
-class TimeSection extends StatelessWidget {
+class TimeSectionContainer extends StatelessWidget {
   final TimerSettings timerSettings;
   final ValueChanged<int> onPomodoroSelected;
   final ValueChanged<int> onShortBreakSelected;
   final ValueChanged<int> onLongBreakSelected;
 
-  const TimeSection({
+  const TimeSectionContainer({
     super.key,
     required this.timerSettings,
     required this.onPomodoroSelected,
@@ -64,21 +64,18 @@ class _FieldsMobileLayout extends StatelessWidget {
     return Column(
       children: [
         TimeSectionItem(
-          key: const Key('pomodoro'),
           title: 'pomodoro',
           initialValue: timerSettings.pomodoro,
           onTimeChanged: (value) => onPomodoroSelected(value.toSeconds),
         ),
         const SizedBox(height: 8),
         TimeSectionItem(
-          key: const Key('short_break'),
           title: 'short break',
           initialValue: timerSettings.shortBreak,
           onTimeChanged: (value) => onShortBreakSelected(value.toSeconds),
         ),
         const SizedBox(height: 8),
         TimeSectionItem(
-          key: const Key('long_break'),
           title: 'long break',
           initialValue: timerSettings.longBreak,
           onTimeChanged: (value) => onLongBreakSelected(value.toSeconds),
@@ -107,7 +104,6 @@ class _FieldsTabletLayout extends StatelessWidget {
       children: [
         Expanded(
           child: TimeSectionItem(
-            key: const Key('pomodoro'),
             title: 'pomodoro',
             initialValue: timerSettings.pomodoro,
             onTimeChanged: (value) => onPomodoroSelected(value.toSeconds),
@@ -116,7 +112,6 @@ class _FieldsTabletLayout extends StatelessWidget {
         const SizedBox(width: 20),
         Expanded(
           child: TimeSectionItem(
-            key: const Key('short_break'),
             title: 'short break',
             initialValue: timerSettings.shortBreak,
             onTimeChanged: (value) => onShortBreakSelected(value.toSeconds),
@@ -125,7 +120,6 @@ class _FieldsTabletLayout extends StatelessWidget {
         const SizedBox(width: 20),
         Expanded(
           child: TimeSectionItem(
-            key: const Key('long_break'),
             title: 'long break',
             initialValue: timerSettings.longBreak,
             onTimeChanged: (value) => onLongBreakSelected(value.toSeconds),
