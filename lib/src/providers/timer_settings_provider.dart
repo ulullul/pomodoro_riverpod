@@ -8,8 +8,7 @@ final timerSettingsProvider =
 );
 
 class TimerSettingsNotifier extends Notifier<TimerSettings> {
-  late final timerDataSource =
-      ref.read(timerSettingsDataSourceProvider);
+  late final timerDataSource = ref.read(timerSettingsDataSourceProvider);
 
   @override
   TimerSettings build() {

@@ -16,7 +16,6 @@ class TimeSectionItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return context.isMobile
         ? Row(
             children: [

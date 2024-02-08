@@ -21,12 +21,10 @@ class PickerWidget<T> extends StatelessWidget {
       runSpacing: 5,
       spacing: 5,
       children: items
-          .mapIndexed(
-            (index, value) => GestureDetector(
-              onTap: () => onSelected(value),
-              child: builder(context, value, value == selected),
-            )
-          )
+          .mapIndexed((index, value) => GestureDetector(
+                onTap: () => onSelected(value),
+                child: builder(context, value, value == selected),
+              ))
           .toList(),
     );
   }

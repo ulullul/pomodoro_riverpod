@@ -12,5 +12,4 @@ class AppColors {
   static const lightGrey = Color(0xFFEFF1FA);
   static const black = Color(0xFF161932);
   static const pileBeige = Color(0xFFE3E1E1);
-
 }

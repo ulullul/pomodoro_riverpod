@@ -16,12 +16,11 @@ class TimerStatusButton extends ConsumerWidget {
         ref.watch(timerProvider.select((value) => value.timerState));
 
     final buttonText = switch (timerState) {
-      TimerStateEnum.initial ||
-      TimerStateEnum.finished =>
-        'start',
+      TimerStateEnum.initial || TimerStateEnum.finished => 'start',
       TimerStateEnum.running => 'pause',
       TimerStateEnum.paused => 'resume',
-    }.toUpperCase();
+    }
+        .toUpperCase();
 
     return Text(
       buttonText.toUpperCase(),
