@@ -10,6 +10,7 @@ import 'package:pomodorro/src/pages/settings/widgets/color_section/color_section
 import 'package:pomodorro/src/pages/settings/widgets/settings_app_bar.dart';
 import 'package:pomodorro/src/pages/settings/widgets/time_section/time_section_container.dart';
 import 'package:pomodorro/src/providers/theme_settings_provider.dart';
+import 'package:pomodorro/src/providers/timer/timer_notifier.dart';
 import 'package:pomodorro/src/providers/timer_settings_provider.dart';
 
 import 'widgets/font_section/font_section.dart';
@@ -63,6 +64,7 @@ class _SettingsDialogState extends ConsumerState<SettingsDialog> {
   void onApply() {
     ref.read(themeSettingsProvider.notifier).setTheme(_themeSettings);
     ref.read(timerSettingsProvider.notifier).setTimerSettings(_timerSettings);
+    ref.invalidate(timerProvider);
     Navigator.of(context).pop();
   }
 

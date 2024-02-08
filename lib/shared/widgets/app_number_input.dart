@@ -27,11 +27,6 @@ class _AppNumberInputState extends State<AppNumberInput> {
   void initState() {
     super.initState();
     _controller = TextEditingController(text: widget.initialValue.toString());
-
-    _controller.addListener(() {
-      final value = int.tryParse(_controller.text) ?? 1;
-      updateValue(value);
-    });
   }
 
   @override
@@ -40,9 +35,9 @@ class _AppNumberInputState extends State<AppNumberInput> {
     super.dispose();
   }
 
-  void updateValue(int value) {
-    _controller.text = value.toString();
-    widget.onTimeChanged(value);
+  void updateValue(String value) {
+    _controller.text = value;
+    widget.onTimeChanged(int.tryParse(value) ?? 1);
   }
 
   void onVerticalDragUpdate(DragUpdateDetails details) {
@@ -53,9 +48,13 @@ class _AppNumberInputState extends State<AppNumberInput> {
     if (isReachingMinValue && isScrollingDown) return;
 
     if (isScrollingUp) {
-      updateValue(int.parse(_controller.text) + 1);
+      updateValue(
+        _controller.text.isEmpty ? '1' : '${int.parse(_controller.text) + 1}',
+      );
     } else {
-      updateValue(int.parse(_controller.text) - 1);
+      updateValue(
+        _controller.text.isEmpty ? '1' : '${int.parse(_controller.text) - 1}',
+      );
     }
   }
 
@@ -64,6 +63,7 @@ class _AppNumberInputState extends State<AppNumberInput> {
     return ConstrainedBox(
       constraints: const BoxConstraints(minWidth: 140),
       child: TextField(
+        onChanged: updateValue,
         controller: _controller,
         keyboardType: TextInputType.number,
         style: TextStyle(
