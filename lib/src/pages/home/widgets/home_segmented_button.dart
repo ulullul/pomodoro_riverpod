@@ -13,35 +13,38 @@ class HomeSegmentedButton extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final theme = ref.watch(themeSettingsProvider);
     final currentAppAction = ref.watch(pomodoroStateProvider);
-    return CustomSlidingSegmentedControl<PomodoroState>(
-      initialValue: currentAppAction,
-      duration: const Duration(milliseconds: 300),
-      decoration: BoxDecoration(
-        color: AppColors.black,
-        borderRadius: BorderRadius.circular(30),
+    return Material(
+      type: MaterialType.transparency,
+      child: CustomSlidingSegmentedControl<PomodoroState>(
+        initialValue: currentAppAction,
+        duration: const Duration(milliseconds: 300),
+        decoration: BoxDecoration(
+          color: AppColors.black,
+          borderRadius: BorderRadius.circular(30),
+        ),
+        innerPadding: const EdgeInsets.all(8),
+        isShowDivider: false,
+        thumbDecoration: BoxDecoration(
+          color: theme.accentColor,
+          borderRadius: BorderRadius.circular(25),
+        ),
+        isDisabled: true,
+        onValueChanged: (value) {},
+        children: {
+          PomodoroState.pomodoro: _HomeSegmentedButtonItem(
+            value: PomodoroState.pomodoro,
+            slidingButtonSelection: currentAppAction,
+          ),
+          PomodoroState.shortBreak: _HomeSegmentedButtonItem(
+            value: PomodoroState.shortBreak,
+            slidingButtonSelection: currentAppAction,
+          ),
+          PomodoroState.longBreak: _HomeSegmentedButtonItem(
+            value: PomodoroState.longBreak,
+            slidingButtonSelection: currentAppAction,
+          ),
+        },
       ),
-      innerPadding: const EdgeInsets.all(8),
-      isShowDivider: false,
-      thumbDecoration: BoxDecoration(
-        color: theme.accentColor,
-        borderRadius: BorderRadius.circular(25),
-      ),
-      isDisabled: true,
-      onValueChanged: (value) {},
-      children: {
-        PomodoroState.pomodoro: _HomeSegmentedButtonItem(
-          value: PomodoroState.pomodoro,
-          slidingButtonSelection: currentAppAction,
-        ),
-        PomodoroState.shortBreak: _HomeSegmentedButtonItem(
-          value: PomodoroState.shortBreak,
-          slidingButtonSelection: currentAppAction,
-        ),
-        PomodoroState.longBreak: _HomeSegmentedButtonItem(
-          value: PomodoroState.longBreak,
-          slidingButtonSelection: currentAppAction,
-        ),
-      },
     );
   }
 }
