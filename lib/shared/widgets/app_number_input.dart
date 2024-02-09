@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -37,7 +39,7 @@ class _AppNumberInputState extends State<AppNumberInput> {
 
   void updateValue(String value) {
     _controller.text = value;
-    widget.onTimeChanged(int.tryParse(value) ?? 1);
+    widget.onTimeChanged(max(int.tryParse(value) ?? 1, 1));
   }
 
   void onVerticalDragUpdate(DragUpdateDetails details) {
