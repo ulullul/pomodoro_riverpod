@@ -30,7 +30,7 @@ void main() {
       final container = createContainer(overrides: [
         sharedPreferencesProvider.overrideWithValue(prefsInstance),
       ]);
-      final timer = container.read(timerProvider);
+      final timer = container.read(timerNotifierProvider);
       expect(timer.timerState, TimerStateEnum.initial);
     });
 
@@ -42,8 +42,8 @@ void main() {
         sharedPreferencesProvider.overrideWithValue(prefsInstance),
       ]);
 
-      final timerState = container.listen(timerProvider, (_, __) {});
-      final timer = container.read(timerProvider.notifier);
+      final timerState = container.listen(timerNotifierProvider, (_, __) {});
+      final timer = container.read(timerNotifierProvider.notifier);
       timer.toggleTimer();
       expect(timerState.read().timerState, TimerStateEnum.running);
     });
@@ -57,8 +57,8 @@ void main() {
       sharedPreferencesProvider.overrideWithValue(prefsInstance),
     ]);
 
-    final timerState = container.listen(timerProvider, (_, __) {});
-    final timer = container.read(timerProvider.notifier);
+    final timerState = container.listen(timerNotifierProvider, (_, __) {});
+    final timer = container.read(timerNotifierProvider.notifier);
     timer.toggleTimer();
     timer.toggleTimer();
     expect(timerState.read().timerState, TimerStateEnum.paused);
@@ -72,8 +72,8 @@ void main() {
       sharedPreferencesProvider.overrideWithValue(prefsInstance),
     ]);
 
-    final timerState = container.listen(timerProvider, (_, __) {});
-    final timer = container.read(timerProvider.notifier);
+    final timerState = container.listen(timerNotifierProvider, (_, __) {});
+    final timer = container.read(timerNotifierProvider.notifier);
 
     timer.toggleTimer();
     timer.toggleTimer();

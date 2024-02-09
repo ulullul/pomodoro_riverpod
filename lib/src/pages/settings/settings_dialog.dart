@@ -29,8 +29,8 @@ class _SettingsDialogState extends ConsumerState<SettingsDialog> {
 
   @override
   void initState() {
-    _themeSettings = ref.read(themeSettingsProvider);
-    _timerSettings = ref.read(timerSettingsProvider);
+    _themeSettings = ref.read(themeSettingsNotifierProvider);
+    _timerSettings = ref.read(timerSettingsNotifierProvider);
     super.initState();
   }
 
@@ -62,9 +62,11 @@ class _SettingsDialogState extends ConsumerState<SettingsDialog> {
   }
 
   void onApply() {
-    ref.read(themeSettingsProvider.notifier).setTheme(_themeSettings);
-    ref.read(timerSettingsProvider.notifier).setTimerSettings(_timerSettings);
-    ref.invalidate(timerProvider);
+    ref.read(themeSettingsNotifierProvider.notifier).setTheme(_themeSettings);
+    ref
+        .read(timerSettingsNotifierProvider.notifier)
+        .setTimerSettings(_timerSettings);
+    ref.invalidate(timerNotifierProvider);
     Navigator.of(context).pop();
   }
 

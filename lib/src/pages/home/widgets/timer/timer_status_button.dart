@@ -11,9 +11,9 @@ class TimerStatusButton extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final theme = ref.watch(themeSettingsProvider);
+    final theme = ref.watch(themeSettingsNotifierProvider);
     final timerState =
-        ref.watch(timerProvider.select((value) => value.timerState));
+        ref.watch(timerNotifierProvider.select((value) => value.timerState));
 
     final buttonText = switch (timerState) {
       TimerStateEnum.initial || TimerStateEnum.finished => 'start',

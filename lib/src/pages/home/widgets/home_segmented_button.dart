@@ -11,8 +11,8 @@ class HomeSegmentedButton extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final theme = ref.watch(themeSettingsProvider);
-    final currentAppAction = ref.watch(pomodoroStateProvider);
+    final theme = ref.watch(themeSettingsNotifierProvider);
+    final currentAppAction = ref.watch(pomodoroStateNotifierProvider);
     return Material(
       type: MaterialType.transparency,
       child: CustomSlidingSegmentedControl<PomodoroState>(
@@ -60,7 +60,7 @@ class _HomeSegmentedButtonItem extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final theme = ref.watch(themeSettingsProvider);
+    final theme = ref.watch(themeSettingsNotifierProvider);
     return Padding(
       padding: const EdgeInsets.all(8),
       child: AnimatedDefaultTextStyle(

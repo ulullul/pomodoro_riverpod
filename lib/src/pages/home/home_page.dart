@@ -27,7 +27,7 @@ class HomePage extends ConsumerWidget {
         title: const Text('pomodoro'),
         actions: [
           IconButton(
-            onPressed: () => ref.invalidate(timerProvider),
+            onPressed: () => ref.invalidate(timerNotifierProvider),
             tooltip: 'Restart timer',
             icon: const Icon(Icons.refresh, color: AppColors.lightGrey),
           ),

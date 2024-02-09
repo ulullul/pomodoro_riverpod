@@ -41,7 +41,7 @@ void main() {
 
   group('Settings tests', () {
     test('Default timer settings are correct', () async {
-      final timerSettings = container.read(timerSettingsProvider);
+      final timerSettings = container.read(timerSettingsNotifierProvider);
 
       expect(
         timerSettings,
@@ -56,7 +56,7 @@ void main() {
     });
 
     test('Default theme settings are correct', () async {
-      final themeSettings = container.read(themeSettingsProvider);
+      final themeSettings = container.read(themeSettingsNotifierProvider);
 
       expect(
         themeSettings,
@@ -83,9 +83,9 @@ void main() {
     );
 
     container
-        .read(timerSettingsProvider.notifier)
+        .read(timerSettingsNotifierProvider.notifier)
         .setTimerSettings(timerSettings);
-    container.read(themeSettingsProvider.notifier).setTheme(themeSettings);
+    container.read(themeSettingsNotifierProvider.notifier).setTheme(themeSettings);
 
     // Simulate app restart by creating a new container
     SharedPreferences.setMockInitialValues({
@@ -98,11 +98,11 @@ void main() {
     ]);
 
     expect(
-      newContainer.read(timerSettingsProvider),
+      newContainer.read(timerSettingsNotifierProvider),
       equals(timerSettings),
     );
     expect(
-      newContainer.read(themeSettingsProvider),
+      newContainer.read(themeSettingsNotifierProvider),
       equals(themeSettings),
     );
   });

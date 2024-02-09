@@ -39,8 +39,9 @@ void main() {
       sharedPreferencesProvider.overrideWithValue(prefsInstance),
     ]);
 
-    final pomodoroNotifier = container.read(timerProvider.notifier);
-    final appState = container.listen(pomodoroStateProvider, (_, __) {});
+    final pomodoroNotifier = container.read(timerNotifierProvider.notifier);
+    final appState =
+        container.listen(pomodoroStateNotifierProvider, (_, __) {});
 
     // Initial state
     expect(appState.read(), PomodoroState.pomodoro);

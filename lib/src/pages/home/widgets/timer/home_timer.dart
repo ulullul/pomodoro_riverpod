@@ -14,7 +14,7 @@ class HomeTimer extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final theme = ref.watch(themeSettingsProvider);
+    final theme = ref.watch(themeSettingsNotifierProvider);
     final formattedTime = ref.watch(formattedTimerProvider);
     final timePercentage = ref.watch(percentageTimerProvider);
 
@@ -23,7 +23,7 @@ class HomeTimer extends ConsumerWidget {
       shape: const CircleBorder(),
       child: InkWell(
         customBorder: const CircleBorder(),
-        onTap: () => ref.read(timerProvider.notifier).toggleTimer(),
+        onTap: () => ref.read(timerNotifierProvider.notifier).toggleTimer(),
         child: Stack(
           alignment: Alignment.center,
           children: [
