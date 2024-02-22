@@ -5,27 +5,6 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'theme_settings_provider.g.dart';
 
-/*final themeSettingsProvider =
-    NotifierProvider<ThemeSettingsNotifier, ThemeSettings>(
-  () => ThemeSettingsNotifier(),
-);
-
-class ThemeSettingsNotifier extends Notifier<ThemeSettings> {
-  late final ThemeSettingsDataSource themeDataSource =
-      ref.read(themeSettingsDataSourceProvider);
-
-  @override
-  ThemeSettings build() {
-    return themeDataSource.getTheme();
-  }
-
-  void setTheme(ThemeSettings themeSettings) {
-    if (themeSettings == state) return;
-    themeDataSource.setTheme(themeSettings);
-    state = themeSettings;
-  }
-}*/
-
 @riverpod
 class ThemeSettingsNotifier extends _$ThemeSettingsNotifier {
   late final ThemeSettingsDataSource themeDataSource =
