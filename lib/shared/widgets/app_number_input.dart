@@ -76,8 +76,10 @@ class _AppNumberInputState extends State<AppNumberInput> {
         ),
         inputFormatters: [FilteringTextInputFormatter.digitsOnly],
         decoration: InputDecoration(
-          contentPadding:
-              const EdgeInsets.symmetric(horizontal: 16, vertical: 0),
+          contentPadding: const EdgeInsets.symmetric(
+            horizontal: 16,
+            vertical: 0,
+          ),
           filled: true,
           fillColor: AppColors.lightGrey,
           floatingLabelBehavior: FloatingLabelBehavior.never,

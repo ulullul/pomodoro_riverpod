@@ -32,7 +32,7 @@ class TimerContainer extends StatelessWidget {
             blurRadius: 100,
             offset: Offset(-50, -50),
             spreadRadius: 0,
-          )
+          ),
         ],
       ),
       child: Container(

@@ -36,22 +36,17 @@ class _SettingsDialogState extends ConsumerState<SettingsDialog> {
 
   void _onFontSelected(AppFontFamily font) {
     setState(() {
-      _themeSettings = _themeSettings.copyWith(
-        appFontFamily: font,
-      );
+      _themeSettings = _themeSettings.copyWith(appFontFamily: font);
     });
   }
 
   void _onColorSelected(Color color) {
     setState(() {
-      _themeSettings = _themeSettings.copyWith(
-        accentColor: color,
-      );
+      _themeSettings = _themeSettings.copyWith(accentColor: color);
     });
   }
 
-  void onTimerSettingsChanged(
-      {int? pomodoro, int? shortBreak, int? longBreak}) {
+  void onTimerSettingsChanged({int? pomodoro, int? shortBreak, int? longBreak}) {
     setState(() {
       _timerSettings = _timerSettings.copyWith(
         pomodoro: pomodoro,
@@ -63,10 +58,9 @@ class _SettingsDialogState extends ConsumerState<SettingsDialog> {
 
   void onApply() {
     ref.read(themeSettingsNotifierProvider.notifier).setTheme(_themeSettings);
-    ref
-        .read(timerSettingsNotifierProvider.notifier)
-        .setTimerSettings(_timerSettings);
-    ref.invalidate(timerNotifierProvider);
+    ref.read(timerSettingsNotifierProvider.notifier).setTimerSettings(_timerSettings);
+    final timerSettingsChanged = _timerSettings != ref.read(timerSettingsNotifierProvider);
+    if (timerSettingsChanged) ref.invalidate(timerNotifierProvider);
     Navigator.of(context).pop();
   }
 
@@ -95,22 +89,15 @@ class _SettingsDialogState extends ConsumerState<SettingsDialog> {
                     const SettingsAppBar(),
                     SliverToBoxAdapter(
                       child: Padding(
-                        padding: const EdgeInsets.only(
-                          left: 24,
-                          right: 24,
-                          top: 24,
-                          bottom: 48,
-                        ),
+                        padding: const EdgeInsets.only(left: 24, right: 24, top: 24, bottom: 48),
                         child: Column(
                           children: [
                             TimeSectionContainer(
                               timerSettings: _timerSettings.toMinutes,
-                              onPomodoroSelected: (val) =>
-                                  onTimerSettingsChanged(pomodoro: val),
+                              onPomodoroSelected: (val) => onTimerSettingsChanged(pomodoro: val),
                               onShortBreakSelected: (val) =>
                                   onTimerSettingsChanged(shortBreak: val),
-                              onLongBreakSelected: (val) =>
-                                  onTimerSettingsChanged(longBreak: val),
+                              onLongBreakSelected: (val) => onTimerSettingsChanged(longBreak: val),
                             ),
                             const SettingsSeparator(),
                             FontSection(
@@ -134,13 +121,9 @@ class _SettingsDialogState extends ConsumerState<SettingsDialog> {
                 left: 0,
                 right: 0,
                 child: Center(
-                  child: DeferPointer(
-                    child: AppButton(
-                      onPressed: onApply,
-                    ),
-                  ),
+                  child: DeferPointer(child: AppButton(onPressed: onApply)),
                 ),
-              )
+              ),
             ],
           ),
         ),

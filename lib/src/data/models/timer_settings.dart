@@ -9,11 +9,11 @@ class TimerSettings {
     this.longBreak = 900,
   });
 
-  get toMinutes => TimerSettings(
-        pomodoro: pomodoro ~/ 60,
-        shortBreak: shortBreak ~/ 60,
-        longBreak: longBreak ~/ 60,
-      );
+  TimerSettings get toMinutes => TimerSettings(
+    pomodoro: pomodoro ~/ 60,
+    shortBreak: shortBreak ~/ 60,
+    longBreak: longBreak ~/ 60,
+  );
 
   Map<String, dynamic> toJson() {
     return {
@@ -31,11 +31,7 @@ class TimerSettings {
     );
   }
 
-  TimerSettings copyWith({
-    int? pomodoro,
-    int? shortBreak,
-    int? longBreak,
-  }) {
+  TimerSettings copyWith({int? pomodoro, int? shortBreak, int? longBreak}) {
     return TimerSettings(
       pomodoro: pomodoro ?? this.pomodoro,
       shortBreak: shortBreak ?? this.shortBreak,

@@ -4,15 +4,9 @@ class TimerState {
   final int secondsLeft;
   final TimerStateEnum timerState;
 
-  TimerState({
-    required this.secondsLeft,
-    required this.timerState,
-  });
+  TimerState({required this.secondsLeft, required this.timerState});
 
-  TimerState copyWith({
-    int? secondsLeft,
-    TimerStateEnum? timerState,
-  }) {
+  TimerState copyWith({int? secondsLeft, TimerStateEnum? timerState}) {
     return TimerState(
       secondsLeft: secondsLeft ?? this.secondsLeft,
       timerState: timerState ?? this.timerState,

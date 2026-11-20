@@ -1,6 +1,1 @@
-enum TimerStateEnum {
-  initial,
-  running,
-  paused,
-  finished;
-}
+enum TimerStateEnum { initial, running, paused, finished }

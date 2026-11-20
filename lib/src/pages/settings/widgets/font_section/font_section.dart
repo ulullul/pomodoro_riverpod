@@ -18,20 +18,14 @@ class FontSection extends StatelessWidget {
             children: [
               const SectionHeadline(text: 'font'),
               const SizedBox(height: 15),
-              FontPicker(
-                onSelected: onSelected,
-                selected: selected,
-              ),
+              FontPicker(onSelected: onSelected, selected: selected),
             ],
           )
         : Row(
             children: [
               const Expanded(child: SectionHeadline(text: 'font')),
               const SizedBox(width: 15),
-              FontPicker(
-                onSelected: onSelected,
-                selected: selected,
-              ),
+              FontPicker(onSelected: onSelected, selected: selected),
             ],
           );
   }

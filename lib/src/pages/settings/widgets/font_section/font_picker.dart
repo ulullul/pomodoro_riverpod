@@ -7,11 +7,7 @@ class FontPicker extends StatelessWidget {
   final AppFontFamily? selected;
   final ValueChanged<AppFontFamily> onSelected;
 
-  const FontPicker({
-    super.key,
-    required this.onSelected,
-    this.selected,
-  });
+  const FontPicker({super.key, required this.onSelected, this.selected});
 
   static const items = AppFontFamily.values;
 

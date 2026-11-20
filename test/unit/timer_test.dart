@@ -27,9 +27,9 @@ void main() {
       SharedPreferences.setMockInitialValues({});
       final prefsInstance = await SharedPreferences.getInstance();
 
-      final container = createContainer(overrides: [
-        sharedPreferencesProvider.overrideWithValue(prefsInstance),
-      ]);
+      final container = createContainer(
+        overrides: [sharedPreferencesProvider.overrideWithValue(prefsInstance)],
+      );
       final timer = container.read(timerNotifierProvider);
       expect(timer.timerState, TimerStateEnum.initial);
     });
@@ -38,11 +38,11 @@ void main() {
       SharedPreferences.setMockInitialValues({});
       final prefsInstance = await SharedPreferences.getInstance();
 
-      final container = createContainer(overrides: [
-        sharedPreferencesProvider.overrideWithValue(prefsInstance),
-      ]);
+      final container = createContainer(
+        overrides: [sharedPreferencesProvider.overrideWithValue(prefsInstance)],
+      );
 
-      final timerState = container.listen(timerNotifierProvider, (_, __) {});
+      final timerState = container.listen(timerNotifierProvider, (_, _) {});
       final timer = container.read(timerNotifierProvider.notifier);
       timer.toggleTimer();
       expect(timerState.read().timerState, TimerStateEnum.running);
@@ -53,11 +53,11 @@ void main() {
     SharedPreferences.setMockInitialValues({});
     final prefsInstance = await SharedPreferences.getInstance();
 
-    final container = createContainer(overrides: [
-      sharedPreferencesProvider.overrideWithValue(prefsInstance),
-    ]);
+    final container = createContainer(
+      overrides: [sharedPreferencesProvider.overrideWithValue(prefsInstance)],
+    );
 
-    final timerState = container.listen(timerNotifierProvider, (_, __) {});
+    final timerState = container.listen(timerNotifierProvider, (_, _) {});
     final timer = container.read(timerNotifierProvider.notifier);
     timer.toggleTimer();
     timer.toggleTimer();
@@ -68,11 +68,11 @@ void main() {
     SharedPreferences.setMockInitialValues({});
     final prefsInstance = await SharedPreferences.getInstance();
 
-    final container = createContainer(overrides: [
-      sharedPreferencesProvider.overrideWithValue(prefsInstance),
-    ]);
+    final container = createContainer(
+      overrides: [sharedPreferencesProvider.overrideWithValue(prefsInstance)],
+    );
 
-    final timerState = container.listen(timerNotifierProvider, (_, __) {});
+    final timerState = container.listen(timerNotifierProvider, (_, _) {});
     final timer = container.read(timerNotifierProvider.notifier);
 
     timer.toggleTimer();

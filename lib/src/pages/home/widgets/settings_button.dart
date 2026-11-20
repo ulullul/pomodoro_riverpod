@@ -3,9 +3,7 @@ import 'package:pomodorro/shared/theme/theme.dart';
 import 'package:pomodorro/src/pages/settings/settings_dialog.dart';
 
 class SettingsButton extends StatelessWidget {
-  const SettingsButton({
-    super.key,
-  });
+  const SettingsButton({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,11 +18,7 @@ class SettingsButton extends StatelessWidget {
       backgroundColor: Colors.transparent,
       elevation: 0,
       shape: const CircleBorder(),
-      child: const Icon(
-        Icons.settings,
-        color: AppColors.lightBlue,
-        size: 28,
-      ),
+      child: const Icon(Icons.settings, color: AppColors.lightBlue, size: 28),
     );
   }
 }

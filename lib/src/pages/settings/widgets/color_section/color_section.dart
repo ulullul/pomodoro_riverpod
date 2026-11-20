@@ -17,20 +17,14 @@ class ColorSection extends StatelessWidget {
             children: [
               const SectionHeadline(text: 'color'),
               const SizedBox(height: 15),
-              ColorPicker(
-                onSelected: onSelected,
-                selected: selected,
-              ),
+              ColorPicker(onSelected: onSelected, selected: selected),
             ],
           )
         : Row(
             children: [
               const Expanded(child: SectionHeadline(text: 'color')),
               const SizedBox(width: 15),
-              ColorPicker(
-                onSelected: onSelected,
-                selected: selected,
-              ),
+              ColorPicker(onSelected: onSelected, selected: selected),
             ],
           );
   }

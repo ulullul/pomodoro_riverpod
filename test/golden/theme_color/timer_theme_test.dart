@@ -14,8 +14,9 @@ class ColorsBytes {
 
 void main() {
   group('Theme tests', () {
-    testWidgets('Red theme (default) displayed correctly for the timer',
-        (tester) async {
+    testWidgets('Red theme (default) displayed correctly for the timer', (
+      tester,
+    ) async {
       SharedPreferences.setMockInitialValues({});
       final prefsInstance = await SharedPreferences.getInstance();
 
@@ -26,9 +27,7 @@ void main() {
           overrides: [
             sharedPreferencesProvider.overrideWithValue(prefsInstance),
           ],
-          child: const MaterialApp(
-            home: widget,
-          ),
+          child: const MaterialApp(home: widget),
         ),
       );
 
@@ -43,7 +42,7 @@ void main() {
     testWidgets('Aqua theme displayed correctly for timer', (tester) async {
       SharedPreferences.setMockInitialValues({
         'theme':
-            '{"accentColor":${ColorsBytes.aqua},"appFontFamily":"Space Mono"}'
+            '{"accentColor":${ColorsBytes.aqua},"appFontFamily":"Space Mono"}',
       });
       final prefsInstance = await SharedPreferences.getInstance();
 
@@ -54,9 +53,7 @@ void main() {
           overrides: [
             sharedPreferencesProvider.overrideWithValue(prefsInstance),
           ],
-          child: const MaterialApp(
-            home: widget,
-          ),
+          child: const MaterialApp(home: widget),
         ),
       );
 
@@ -68,11 +65,12 @@ void main() {
       );
     });
 
-    testWidgets('Purple theme displayed correctly for the timer',
-        (tester) async {
+    testWidgets('Purple theme displayed correctly for the timer', (
+      tester,
+    ) async {
       SharedPreferences.setMockInitialValues({
         'theme':
-            '{"accentColor":${ColorsBytes.purple},"appFontFamily":"Space Mono"}'
+            '{"accentColor":${ColorsBytes.purple},"appFontFamily":"Space Mono"}',
       });
       final prefsInstance = await SharedPreferences.getInstance();
 
@@ -83,9 +81,7 @@ void main() {
           overrides: [
             sharedPreferencesProvider.overrideWithValue(prefsInstance),
           ],
-          child: const MaterialApp(
-            home: widget,
-          ),
+          child: const MaterialApp(home: widget),
         ),
       );
 
@@ -97,37 +93,38 @@ void main() {
       );
     });
 
-    testWidgets('Red theme (default) displayed correctly for segmented button',
-        (tester) async {
-      SharedPreferences.setMockInitialValues({});
-      final prefsInstance = await SharedPreferences.getInstance();
+    testWidgets(
+      'Red theme (default) displayed correctly for segmented button',
+      (tester) async {
+        SharedPreferences.setMockInitialValues({});
+        final prefsInstance = await SharedPreferences.getInstance();
 
-      const widget = HomeSegmentedButton();
+        const widget = HomeSegmentedButton();
 
-      await tester.pumpWidget(
-        ProviderScope(
-          overrides: [
-            sharedPreferencesProvider.overrideWithValue(prefsInstance),
-          ],
-          child: const MaterialApp(
-            home: widget,
+        await tester.pumpWidget(
+          ProviderScope(
+            overrides: [
+              sharedPreferencesProvider.overrideWithValue(prefsInstance),
+            ],
+            child: const MaterialApp(home: widget),
           ),
-        ),
-      );
+        );
 
-      await tester.pumpAndSettle();
+        await tester.pumpAndSettle();
 
-      await expectLater(
-        find.byType(HomeSegmentedButton),
-        matchesGoldenFile('red_theme_segmented_button.png'),
-      );
-    });
+        await expectLater(
+          find.byType(HomeSegmentedButton),
+          matchesGoldenFile('red_theme_segmented_button.png'),
+        );
+      },
+    );
 
-    testWidgets('Aqua theme displayed correctly for segmented button',
-        (tester) async {
+    testWidgets('Aqua theme displayed correctly for segmented button', (
+      tester,
+    ) async {
       SharedPreferences.setMockInitialValues({
         'theme':
-            '{"accentColor":${ColorsBytes.aqua},"appFontFamily":"Space Mono"}'
+            '{"accentColor":${ColorsBytes.aqua},"appFontFamily":"Space Mono"}',
       });
       final prefsInstance = await SharedPreferences.getInstance();
 
@@ -138,9 +135,7 @@ void main() {
           overrides: [
             sharedPreferencesProvider.overrideWithValue(prefsInstance),
           ],
-          child: const MaterialApp(
-            home: widget,
-          ),
+          child: const MaterialApp(home: widget),
         ),
       );
 
@@ -152,11 +147,12 @@ void main() {
       );
     });
 
-    testWidgets('Purple theme displayed correctly for segmented button',
-        (tester) async {
+    testWidgets('Purple theme displayed correctly for segmented button', (
+      tester,
+    ) async {
       SharedPreferences.setMockInitialValues({
         'theme':
-            '{"accentColor":${ColorsBytes.purple},"appFontFamily":"Space Mono"}'
+            '{"accentColor":${ColorsBytes.purple},"appFontFamily":"Space Mono"}',
       });
       final prefsInstance = await SharedPreferences.getInstance();
 
@@ -167,9 +163,7 @@ void main() {
           overrides: [
             sharedPreferencesProvider.overrideWithValue(prefsInstance),
           ],
-          child: const MaterialApp(
-            home: widget,
-          ),
+          child: const MaterialApp(home: widget),
         ),
       );
 

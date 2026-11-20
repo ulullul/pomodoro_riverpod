@@ -35,13 +35,12 @@ void main() {
     });
     final prefsInstance = await SharedPreferences.getInstance();
 
-    final container = createContainer(overrides: [
-      sharedPreferencesProvider.overrideWithValue(prefsInstance),
-    ]);
+    final container = createContainer(
+      overrides: [sharedPreferencesProvider.overrideWithValue(prefsInstance)],
+    );
 
     final pomodoroNotifier = container.read(timerNotifierProvider.notifier);
-    final appState =
-        container.listen(pomodoroStateNotifierProvider, (_, __) {});
+    final appState = container.listen(pomodoroStateNotifierProvider, (_, _) {});
 
     // Initial state
     expect(appState.read(), PomodoroState.pomodoro);

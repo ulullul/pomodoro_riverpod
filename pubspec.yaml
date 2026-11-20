@@ -5,14 +5,15 @@ publish_to: 'none'
 version: 1.0.0+1
 
 environment:
-  sdk: '>=3.2.6 <4.0.0'
+  sdk: ^3.12.0
+  flutter: '>=3.44.4'
 
 dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.6
-  flutter_riverpod: ^2.4.10
-  riverpod_annotation: ^2.3.4
+  flutter_riverpod: ^2.6.1
+  riverpod_annotation: ^2.6.1
   custom_sliding_segmented_control: ^1.8.1
   flutter_svg: ^2.0.9
   defer_pointer: ^0.0.2
@@ -23,11 +24,11 @@ dev_dependencies:
     sdk: flutter
   golden_toolkit: ^0.15.0
 
-  riverpod_generator: ^2.3.11
-  flutter_lints: ^3.0.1
-  build_runner: ^2.4.8
-  riverpod_lint: ^2.3.9
-  custom_lint: ^0.6.0
+  riverpod_generator: ^2.6.5
+  flutter_lints: ^6.0.0
+  build_runner: ^2.4.15
+  riverpod_lint: ^2.6.5
+  custom_lint: ^0.7.6
 
 flutter:
 

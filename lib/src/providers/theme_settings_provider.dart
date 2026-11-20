@@ -7,8 +7,9 @@ part 'theme_settings_provider.g.dart';
 
 @riverpod
 class ThemeSettingsNotifier extends _$ThemeSettingsNotifier {
-  late final ThemeSettingsDataSource themeDataSource =
-      ref.read(themeSettingsDataSourceProvider);
+  late final ThemeSettingsDataSource themeDataSource = ref.read(
+    themeSettingsDataSourceProvider,
+  );
 
   @override
   ThemeSettings build() => themeDataSource.getTheme();

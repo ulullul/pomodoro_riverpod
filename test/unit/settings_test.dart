@@ -34,9 +34,9 @@ void main() {
     SharedPreferences.setMockInitialValues({});
     final prefsInstance = await SharedPreferences.getInstance();
 
-    container = createContainer(overrides: [
-      sharedPreferencesProvider.overrideWithValue(prefsInstance),
-    ]);
+    container = createContainer(
+      overrides: [sharedPreferencesProvider.overrideWithValue(prefsInstance)],
+    );
   });
 
   group('Settings tests', () {
@@ -45,13 +45,7 @@ void main() {
 
       expect(
         timerSettings,
-        equals(
-          TimerSettings(
-            pomodoro: 1500,
-            shortBreak: 300,
-            longBreak: 900,
-          ),
-        ),
+        equals(TimerSettings(pomodoro: 1500, shortBreak: 300, longBreak: 900)),
       );
     });
 
@@ -85,17 +79,22 @@ void main() {
     container
         .read(timerSettingsNotifierProvider.notifier)
         .setTimerSettings(timerSettings);
-    container.read(themeSettingsNotifierProvider.notifier).setTheme(themeSettings);
+    container
+        .read(themeSettingsNotifierProvider.notifier)
+        .setTheme(themeSettings);
 
     // Simulate app restart by creating a new container
     SharedPreferences.setMockInitialValues({
       'theme': jsonEncode(themeSettings.toJson()),
       'timer_settings': jsonEncode(timerSettings.toJson()),
     });
-    final newContainer = createContainer(overrides: [
-      sharedPreferencesProvider
-          .overrideWithValue(await SharedPreferences.getInstance()),
-    ]);
+    final newContainer = createContainer(
+      overrides: [
+        sharedPreferencesProvider.overrideWithValue(
+          await SharedPreferences.getInstance(),
+        ),
+      ],
+    );
 
     expect(
       newContainer.read(timerSettingsNotifierProvider),

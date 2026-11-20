@@ -37,15 +37,8 @@ class HomePage extends ConsumerWidget {
         mainAxisSize: MainAxisSize.max,
         children: [
           SizedBox(height: 40),
-          Align(
-            alignment: Alignment.topCenter,
-            child: HomeSegmentedButton(),
-          ),
-          Expanded(
-            child: Center(
-              child: TimerContainer(),
-            ),
-          ),
+          Align(alignment: Alignment.topCenter, child: HomeSegmentedButton()),
+          Expanded(child: Center(child: TimerContainer())),
         ],
       ),
       floatingActionButton: const SettingsButton(),

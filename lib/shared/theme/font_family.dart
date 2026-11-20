@@ -14,9 +14,9 @@ enum AppFontFamily {
   });
 
   static AppFontFamily fromString(String name) => switch (name) {
-        'Kumbh Sans' => AppFontFamily.kumbhSans,
-        'Roboto Slab' => AppFontFamily.robotoSlab,
-        'Space Mono' => AppFontFamily.spaceMono,
-        _ => AppFontFamily.kumbhSans,
-      };
+    'Kumbh Sans' => AppFontFamily.kumbhSans,
+    'Roboto Slab' => AppFontFamily.robotoSlab,
+    'Space Mono' => AppFontFamily.spaceMono,
+    _ => AppFontFamily.kumbhSans,
+  };
 }

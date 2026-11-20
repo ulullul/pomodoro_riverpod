@@ -13,7 +13,7 @@ class ThemeSettings {
 
   Map<String, dynamic> toJson() {
     return {
-      'accentColor': accentColor.value,
+      'accentColor': accentColor.toARGB32(),
       'appFontFamily': appFontFamily.name.toString(),
     };
   }
@@ -21,16 +21,11 @@ class ThemeSettings {
   factory ThemeSettings.fromJson(Map<String, dynamic> json) {
     return ThemeSettings(
       accentColor: Color(json['accentColor'] as int),
-      appFontFamily: AppFontFamily.fromString(
-        json['appFontFamily'].toString(),
-      ),
+      appFontFamily: AppFontFamily.fromString(json['appFontFamily'].toString()),
     );
   }
 
-  ThemeSettings copyWith({
-    Color? accentColor,
-    AppFontFamily? appFontFamily,
-  }) {
+  ThemeSettings copyWith({Color? accentColor, AppFontFamily? appFontFamily}) {
     return ThemeSettings(
       accentColor: accentColor ?? this.accentColor,
       appFontFamily: appFontFamily ?? this.appFontFamily,

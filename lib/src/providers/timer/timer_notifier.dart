@@ -70,8 +70,9 @@ class TimerNotifier extends _$TimerNotifier {
 
   void _handleNextRound() {
     final currentPomodoroState = ref.read(pomodoroStateNotifierProvider);
-    final pomodoroStateNotifier =
-        ref.read(pomodoroStateNotifierProvider.notifier);
+    final pomodoroStateNotifier = ref.read(
+      pomodoroStateNotifierProvider.notifier,
+    );
 
     if (currentPomodoroState == PomodoroState.pomodoro &&
         _currentRound != AppConstants.pomodoroRounds) {
