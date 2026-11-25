@@ -1,9 +1,12 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pomodorro/shared/const/timer_state.dart';
+import 'package:pomodorro/src/data/data_sources/notifications/notifications_data_source_provider.dart';
 import 'package:pomodorro/src/providers/shared_preferences_provider.dart';
 import 'package:pomodorro/src/providers/timer/timer_notifier.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import '../helpers/fake_notifications_data_source.dart';
 
 ProviderContainer createContainer({
   ProviderContainer? parent,
@@ -12,7 +15,12 @@ ProviderContainer createContainer({
 }) {
   final container = ProviderContainer(
     parent: parent,
-    overrides: overrides,
+    overrides: [
+      notificationsDataSourceProvider.overrideWithValue(
+        FakeNotificationsDataSource(),
+      ),
+      ...overrides,
+    ],
     observers: observers,
   );
 

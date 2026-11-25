@@ -4,17 +4,24 @@ import 'package:pomodorro/src/pages/home/home_page.dart';
 import 'package:pomodorro/shared/theme/theme.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'src/data/data_sources/notifications/notifications_data_source_impl.dart';
+import 'src/data/data_sources/notifications/notifications_data_source_provider.dart';
 import 'src/providers/shared_preferences_provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   final sharedPreferences = await SharedPreferences.getInstance();
+  final notificationsDataSource = NotificationsDataSourceImpl();
+  await notificationsDataSource.init();
 
   runApp(
     ProviderScope(
       overrides: [
         sharedPreferencesProvider.overrideWithValue(sharedPreferences),
+        notificationsDataSourceProvider.overrideWithValue(
+          notificationsDataSource,
+        ),
       ],
       child: const MyApp(),
     ),
